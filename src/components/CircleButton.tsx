@@ -1,5 +1,8 @@
 import { JSX } from 'react'
-import { View, Text, StyleSheet, type ViewStyle } from 'react-native'
+import {
+  Text, StyleSheet, TouchableOpacity,
+  type ViewStyle
+} from 'react-native'
 
 interface Children {
   children: JSX.Element;
@@ -8,9 +11,9 @@ interface Children {
 const CircleButton = (porps: Children): JSX.Element => {
 const { children, style } = porps;
   return (
-    <View style={[styles.circleButton, style]}>
-        <Text style={styles.circleButtonLabel}>{children}</Text>
-      </View>
+    <TouchableOpacity style={[styles.circleButton, style]}>
+      <Text style={styles.circleButtonLabel}>{children}</Text>
+    </TouchableOpacity>
   )
 }
 
