@@ -1,14 +1,17 @@
 import { JSX } from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native'
-import Icon from '../../components/icon'
+import { router } from 'expo-router'
 
-import Header from '../../components/Header';
+import Icon from '../../components/icon'
 import CircleButton from '../../components/CircleButton';
+
+const handlePress = (): void => {
+  router.push('/memo/edit')
+}
 
 const Detaill = (): JSX.Element => {
   return (
     <View style={styles.container}>
-      <Header />
       <View style={styles.memoHeader}>
         <Text style={styles.memoTitle}>買い物リスト</Text>
         <Text style={styles.memoDate}>2023年10月1日 10:00</Text>
@@ -20,9 +23,9 @@ const Detaill = (): JSX.Element => {
           本文用なので使い方を間違えると不自然にみえることもありますので要注意。
         </Text>
       </ScrollView>
-      <CircleButton style={{ top: 160, bottom: 'auto' }}>
+      <CircleButton onPress={handlePress} style={{ top: 60, bottom: 'auto' }}>
         <Icon name="pencil" size={40} color="#ffffff"/>
-        </CircleButton>
+      </CircleButton>
     </View>
   )
 }

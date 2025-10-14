@@ -6,12 +6,13 @@ import {
 
 interface Children {
   children: JSX.Element;
-  style?: ViewStyle
+  style?: ViewStyle;
+  onPress?: () => void;
 }
 const CircleButton = (porps: Children): JSX.Element => {
-const { children, style } = porps;
+const { children, style, onPress } = porps;
   return (
-    <TouchableOpacity style={[styles.circleButton, style]}>
+    <TouchableOpacity onPress={onPress} style={[styles.circleButton, style]}>
       <Text style={styles.circleButtonLabel}>{children}</Text>
     </TouchableOpacity>
   )
